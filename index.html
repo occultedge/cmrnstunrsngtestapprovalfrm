@@ -112,13 +112,44 @@
     </select>
 </div>
 
+       <div class="form-group">
+    <label for="course">Select Your Course:</label>
+    <select id="course" name="course" required>
+        <option value="" disabled selected>Select Your Course</option>
+        <option value="Nursing (First semester)">Nursing (First semester)</option>
+        <option value="Midwifery (First semester)">Midwifery (First semester)</option>
+        <option value="Medical Laboratory Science (First semester)">Medical Laboratory Science (First semester)</option>
+        <option value="Medical Imaging Technology (First semester)">Medical Imaging Technology (First semester)</option>
+        <option value="Sciences Infirmieres (Course in French)">Sciences Infirmieres (Course in French)</option>
+        <option value="Nursing Aid (Care Assistant)">Nursing Aid (Care Assistant)</option>
+        <option value="Pharmacy Technology">Pharmacy Technology</option>
+        <option value="Mental Health and Psychiatric Nursing">Mental Health and Psychiatric Nursing</option>
+        <!-- Add more courses here if needed -->
+    </select>
+</div>
 
 
+       <div class="form-group">
+    <label for="module">Select the Module:</label>
+    <select id="module" name="module" required>
+        <option value="" disabled selected>Select the Module</option>
+        <option value="ICT I">ICT I</option>
+        <option value="Functional English">Functional English</option>
+        <option value="Medical Sociology and Anthropology">Medical Sociology and Anthropology</option>
+        <option value="General Biochemistry">General Biochemistry</option>
+        <option value="General Microbiology and Parasitology">General Microbiology and Parasitology</option>
+        <option value="General Pharmacology I">General Pharmacology I</option>
+        <option value="Anatomy and Physiology IA">Anatomy and Physiology IA</option>
+        <option value="Health Care Ethics">Health Care Ethics</option>
+        <option value="Medico Sanitary Techniques">Medico Sanitary Techniques</option>
+        <option value="Medical Law and Citizenship">Medical Law and Citizenship</option>
+        <option value="Anatomy and Physiology IB">Anatomy and Physiology IB</option>
+    </select>
+</div>
 
 <div class="form-group">
     <label for="testDate">Select the Test Date:</label>
- <input type="date" id="testDate" name="testDate" required min="2024-12-15" max="2024-12-15">
-
+    <input type="date" id="testDate" name="testDate" required min="2024-11-20">
 </div>
 
 <div class="form-group">
@@ -150,7 +181,7 @@
     <!-- Confirmation 3 -->
     <div>
         <input type="checkbox" id="availabilityConfirmation" name="availabilityConfirmation" required>
-        <label for="availabilityConfirmation">I am available to take the test on the selected date and time slot.</label>
+        <label for="availabilityConfirmation">I am available to take the test on the selected date and time slot. I undertand this date cannot be changed once submitted </label>
     </div>
 </div>
 
@@ -163,12 +194,12 @@
     // Firebase configuration
     const firebaseConfig = {
         apiKey: "AIzaSyAnbPcqEU_dJjYXREg61kqaIJgUld-tUjE",
-        authDomain: "otp-ver-pr.firebaseapp.com",
-        projectId: "otp-ver-pr",
-        storageBucket: "otp-ver-pr.appspot.com",
-        messagingSenderId: "440252952853",
-        appId: "1:440252952853:web:8fb5c9fa3ea6788bb7791c",
-        measurementId: "G-B7YSVKNGL5"
+  authDomain: "otp-ver-pr.firebaseapp.com",
+  projectId: "otp-ver-pr",
+  storageBucket: "otp-ver-pr.firebasestorage.app",
+  messagingSenderId: "440252952853",
+  appId: "1:440252952853:web:8fb5c9fa3ea6788bb7791c",
+  measurementId: "G-B7YSVKNGL5"
     };
 
     // Initialize Firebase
@@ -196,7 +227,7 @@
             .then((result) => {
                 confirmationResult = result;
                 document.getElementById("otpSection").style.display = "block";
-                alert("OTP sent. Please check your phone.");
+                alert("OTP sent. Please check sms on your phone.");
             })
             .catch((error) => {
                 console.error("Error sending OTP:", error);
@@ -214,7 +245,7 @@
 
         confirmationResult.confirm(otp)
             .then((result) => {
-                alert("Phone number verified successfully!");
+                alert("Phone number verified successfully! You can proceed with form submission now ");
                 document.getElementById('otpError').textContent = ""; // Clear any previous errors
                 document.getElementById('otpSection').style.display = "none";
                 document.getElementById('phone').disabled = true;
@@ -232,7 +263,7 @@
         const formData = new FormData(event.target);
 
         try {
-            const response = await fetch("https://script.google.com/macros/s/AKfycbw8U4rXfvjPCbBo1BOBN-hcJrnK_Gyvc30sdTTxl2SC4frlht_Bq4ml_f19seQ9AvbA/exec", { // Replace with your Web App URL
+            const response = await fetch("https://script.google.com/macros/s/AKfycbyvgFBXuIedLVOylggoy5qYjkkTYL4SxzE8kQCFyj9VzowHMn8k9BK-DtKrgY7OBp0W/exec", { // Replace with your Web App URL
                 method: "POST",
                 body: formData
             });
