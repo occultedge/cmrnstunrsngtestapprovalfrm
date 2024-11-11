@@ -149,7 +149,7 @@
 
 <div class="form-group">
     <label for="testDate">Select the Test Date:</label>
-    <input type="date" id="testDate" name="testDate" required min="2024-11-15">
+    <input type="date" id="testDate" name="testDate" required min="2024-11-20">
 </div>
 
 <div class="form-group">
@@ -181,7 +181,7 @@
     <!-- Confirmation 3 -->
     <div>
         <input type="checkbox" id="availabilityConfirmation" name="availabilityConfirmation" required>
-        <label for="availabilityConfirmation">I am available to take the test on the selected date and time slot.</label>
+        <label for="availabilityConfirmation">I am available to take the test on the selected date and time slot. I undertand this date cannot be changed once submitted </label>
     </div>
 </div>
 
@@ -227,7 +227,7 @@
             .then((result) => {
                 confirmationResult = result;
                 document.getElementById("otpSection").style.display = "block";
-                alert("OTP sent. Please check your phone.");
+                alert("OTP sent. Please check sms on your phone.");
             })
             .catch((error) => {
                 console.error("Error sending OTP:", error);
