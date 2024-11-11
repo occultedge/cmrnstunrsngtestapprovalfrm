@@ -258,12 +258,12 @@
             });
     }
 
-    document.getElementById("st data -Cameroon Module Test Registration Form").addEventListener("submit", async function(event) {
+    document.getElementById("teacherForm").addEventListener("submit", async function(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
 
         try {
-            const response = await fetch("https://script.google.com/macros/s/AKfycbw8U4rXfvjPCbBo1BOBN-hcJrnK_Gyvc30sdTTxl2SC4frlht_Bq4ml_f19seQ9AvbA/exec", { // Replace with your Web App URL
+            const response = await fetch("https://script.google.com/macros/s/AKfycbwkbF5Zqcy3rBmC-GWySTXzgg46nRrbin6Xipe2WJIT6folhVIyBe7infYPzH8T1JhC/exec", { // Replace with your Web App URL
                 method: "POST",
                 body: formData
             });
